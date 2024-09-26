@@ -1,3 +1,4 @@
+
 body {
   background-color: #ffebf0;
   color: #5d4157;
@@ -5,11 +6,7 @@ body {
   margin: 0;
   padding: 0;
 }
-/* html {
-  background-image: url("https://i.pinimg.com/originals/30/68/d4/3068d4c3a69001bcd969f2fb11dada15.png");
-  background-repeat: no-repeat;
-  background-size: 150px 150px;
-} */
+
 
 header {
   background-color: #ffb6c1;
