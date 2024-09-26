@@ -1,0 +1,129 @@
+body[data-theme="sunset"] {
+
+};
+
+/* Style général pour l'extension Sunset */
+body {
+    background-color: #FFDAB9; /* Pêche douce pour le fond */
+    color: #4B2C20; /* Brun foncé pour le texte */
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* En-tête de page */
+header {
+    background-color: #FF4500; /* Orange-rouge vif inspiré du soleil couchant */
+    color: #FFFFFF; /* Texte blanc pour contraste */
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Liens */
+a {
+    color: #FF6347; /* Tomate pour les liens */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #FF8C00; /* Orange vif au survol */
+}
+
+/* Sections */
+section {
+    background-color: #FFE4B5; /* Crème léger pour les sections */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Boutons */
+button {
+    background-color: #FF7F50; /* Corail pour les boutons */
+    color: #FFFFFF; /* Texte blanc */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #FF4500; /* Plus foncé au survol */
+    transform: scale(1.05);
+}
+
+/* Pied de page */
+footer {
+    background-color: #FF6347; /* Rouge tomate pour le pied de page */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+/* Titres */
+h1, h2, h3 {
+    color: #D2691E; /* Brun-orange chaleureux pour les titres */
+}
+
+/* Paragraphe */
+p {
+    color: #4B2C20; /* Couleur sombre brun pour un contraste optimal */
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #FFD700;
+    text-align: left;
+}
+
+table th {
+    background-color: #FF8C00; /* Orange vif pour la tête de table */
+    color: #FFFFFF;
+}
+
+table td {
+    background-color: #FFFACD; /* Jaune pâle pour les cellules */
+}
+
+/* Listes */
+ul {
+    list-style-type: square;
+    color: #FF6347; /* Rouge tomate pour les puces */
+}
+
+li {
+    margin: 5px 0;
+}
+
+/* Media Queries pour adaptation mobile */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.6rem;
+        padding: 15px;
+    }
+
+    section {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    button {
+        padding: 10px 20px;
+    }
+}
