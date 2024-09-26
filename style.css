@@ -1,150 +1,135 @@
-/* Style global pour la page */
-body {
+/* Styles appliqués seulement si la classe `kawaii-theme` est activée sur le body */
+
+body.kawaii-theme {
   background-color: #ffe4e1; /* Couleur rose pastel */
   font-family: "Comic Sans MS", cursive;
   background-image: url("https://i.pinimg.com/originals/30/68/d4/3068d4c3a69001bcd969f2fb11dada15.png"); /* Image mignonne */
   background-position: bottom right; /* Position en bas à droite */
   background-repeat: no-repeat; /* Ne pas répéter l'image */
   background-size: 150px 150px; /* Taille de l'image */
-  margin: 0;
-  padding: 0;
 }
 
-/* Titres */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+body.kawaii-theme h1,
+body.kawaii-theme h2,
+body.kawaii-theme h3,
+body.kawaii-theme h4,
+body.kawaii-theme h5,
+body.kawaii-theme h6 {
   color: #ff69b4; /* Rose vif */
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  margin-bottom: 15px;
 }
 
-/* Liens */
-a {
+body.kawaii-theme a {
   color: #ff1493; /* Rose foncé */
   text-decoration: none;
 }
 
-a:hover {
+body.kawaii-theme a:hover {
   color: #ff69b4; /* Rose vif au survol */
   text-decoration: underline;
 }
 
-/* Paragraphes */
-p {
+body.kawaii-theme p {
   font-size: 16px;
   line-height: 1.6;
+  margin-bottom: 20px;
   color: #333; /* Couleur sombre pour contraste */
 }
 
-/* Listes */
-ul,
-ol {
+body.kawaii-theme ul,
+body.kawaii-theme ol {
+  margin-left: 20px;
+  padding-left: 20px;
   color: #ff69b4;
 }
 
-ul {
+body.kawaii-theme li {
+  margin-bottom: 10px;
+}
+
+body.kawaii-theme ul {
   list-style-type: circle; /* Style de puce mignon */
 }
 
-ol {
+body.kawaii-theme ol {
   list-style-type: decimal; /* Style numéroté pour les listes ordonnées */
 }
 
-/* Tableaux */
-table {
+body.kawaii-theme table {
+  width: 100%;
   border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-th,
-td {
+body.kawaii-theme th,
+body.kawaii-theme td {
   border: 1px solid #ff69b4;
+  padding: 10px;
   text-align: left;
 }
 
-th {
+body.kawaii-theme th {
   background-color: #ffb6c1; /* Rose clair pour l'en-tête */
   color: white;
 }
 
-td {
+body.kawaii-theme td {
   background-color: #ffe4e1; /* Couleur de fond pastel pour les cellules */
 }
 
-/* Champs de formulaire (input, textarea, select) */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
+body.kawaii-theme input[type="text"],
+body.kawaii-theme input[type="email"],
+body.kawaii-theme input[type="password"],
+body.kawaii-theme textarea,
+body.kawaii-theme select {
+  border: 2px solid #ffb6c1; /* Rose clair pour les bordures */
+  border-radius: 20px;
+  padding: 10px;
+  width: calc(100% - 24px); /* Pour tenir compte du padding */
+  margin-bottom: 15px;
   font-size: 16px;
   background-color: #fff; /* Couleur de fond blanche */
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-textarea:focus,
-select:focus {
+body.kawaii-theme input[type="text"]:focus,
+body.kawaii-theme input[type="email"]:focus,
+body.kawaii-theme input[type="password"]:focus,
+body.kawaii-theme textarea:focus,
+body.kawaii-theme select:focus {
   outline: none;
   border-color: #ff69b4; /* Bordure rose vif au focus */
 }
 
-/* Boutons */
-button,
-input[type="submit"] {
+body.kawaii-theme button,
+body.kawaii-theme input[type="submit"] {
   background-color: #ffb6c1; /* Rose clair */
   color: white;
+  border-radius: 20px;
+  padding: 10px;
   font-size: 16px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button:hover,
-input[type="submit"]:hover {
+body.kawaii-theme button:hover,
+body.kawaii-theme input[type="submit"]:hover {
   background-color: #ff69b4; /* Rose vif au survol */
 }
 
-/* Conteneurs div */
-div {
+body.kawaii-theme img {
+  max-width: 100%;
+  border-radius: 20px; /* Arrondir les bords des images */
+  margin-bottom: 20px;
+}
+
+body.kawaii-theme div {
+  padding: 10px;
+  margin-bottom: 20px;
   background-color: #fff;
-}
-
-/* Barre de navigation */
-nav {
-  background-color: #ffb6c1;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  font-size: 18px;
-  text-transform: uppercase;
-}
-
-nav a:hover {
-  color: #ff69b4;
-}
-
-/* Section et Article */
-section,
-article {
-  background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-  background-color: #ffb6c1;
-  text-align: center;
-  color: white;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  border: 2px solid #ffb6c1;
+  border-radius: 10px;
 }
