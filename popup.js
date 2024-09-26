@@ -1,55 +1,81 @@
-let isThemeActive = false;
-let currentTab;
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleButton = document.getElementById("toggleTheme");
+  const kawaiiButton = document.getElementById("kawaiiTheme");
+  const sunsetButton = document.getElementById("sunsetTheme");
+  const darkButton = document.getElementById("darkTheme");
+  const themeButtons = [kawaiiButton, sunsetButton, darkButton];
 
-chrome.storage.local.get("themeActive", (result) => {
-  if (result.themeActive) {
-    isThemeActive = true;
-    document.getElementById("toggleTheme").textContent = "Desactiver le theme";
+  chrome.storage.sync.get(["themeActive", "currentTheme"], function (data) {
+    if (data.themeActive) {
+      toggleButton.textContent = "Désactiver le Thème";
+    } else {
+      toggleButton.textContent = "Activer le Thème";
+    }
+    updateThemeButtons(data.currentTheme);
+  });
 
-    applyTheme();
+  toggleButton.addEventListener("click", function () {
+    chrome.storage.sync.get("themeActive", function (data) {
+      const newThemeActive = !data.themeActive;
+      chrome.storage.sync.set({ themeActive: newThemeActive });
+
+      if (newThemeActive) {
+        toggleButton.textContent = "Désactiver le Thème";
+      } else {
+        toggleButton.textContent = "Activer le Thème";
+      }
+
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {
+          action: "toggleTheme",
+          themeActive: newThemeActive,
+        });
+      });
+    });
+  });
+
+  kawaiiButton.addEventListener("click", function () {
+    setTheme("kawaii");
+    updateThemeButtons("kawaii");
+  });
+
+  sunsetButton.addEventListener("click", function () {
+    setTheme("sunset");
+    updateThemeButtons("sunset");
+  });
+
+  darkButton.addEventListener("click", function () {
+    setTheme("dark");
+    updateThemeButtons("dark");
+  });
+
+  function setTheme(themeName) {
+    chrome.storage.sync.set({ currentTheme: themeName }, function () {
+      chrome.storage.sync.get("themeActive", function (data) {
+        if (data.themeActive) {
+          chrome.tabs.query(
+            { active: true, currentWindow: true },
+            function (tabs) {
+              chrome.tabs.sendMessage(tabs[0].id, {
+                action: "changeTheme",
+                themeName: themeName,
+              });
+            }
+          );
+        }
+      });
+    });
+  }
+
+  function updateThemeButtons(selectedTheme) {
+    themeButtons.forEach(function (button) {
+      if (button.id === selectedTheme + "Theme") {
+        button.classList.add("selected");
+        button.disabled = true;
+      } else {
+        button.classList.remove("selected");
+        button.disabled = false;
+      }
+    });
   }
 });
-
-chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-  currentTab = tabs[0];
-
-  document.getElementById("toggleTheme").addEventListener("click", function () {
-    if (isThemeActive) {
-      removeTheme();
-    } else {
-      applyTheme();
-    }
-    isThemeActive = !isThemeActive;
-
-    chrome.storage.local.set({ themeActive: isThemeActive });
-  });
-});
-
-function applyTheme() {
-  chrome.scripting
-    .insertCSS({
-      target: { tabId: currentTab.id },
-      files: ["style.css"],
-    })
-    .then(() => {
-      document.getElementById("toggleTheme").textContent =
-        "Desactiver le theme";
-    })
-    .catch((error) =>
-      console.error("Erreur lors de l'injection du CSS : ", error)
-    );
-}
-
-function removeTheme() {
-  chrome.scripting
-    .removeCSS({
-      target: { tabId: currentTab.id },
-      files: ["style.css"],
-    })
-    .then(() => {
-      document.getElementById("toggleTheme").textContent = "Activer le theme";
-    })
-    .catch((error) =>
-      console.error("Erreur lors de la suppression du CSS : ", error)
-    );
-}

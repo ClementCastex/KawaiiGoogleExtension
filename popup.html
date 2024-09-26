@@ -2,30 +2,66 @@
 <html>
 
 <head>
-    <title>Kawaii Theme</title>
+    <meta charset="UTF-8">
+    <title>Kawaii de Theme</title>
     <style>
         body {
-            width: 150px;
+            font-family: Arial, sans-serif;
+            width: 200px;
             padding: 10px;
+            background-color: #ffe4e1;
         }
 
-        button {
-            margin-top: 10px;
+        #toggleTheme {
             width: 100%;
             padding: 10px;
-            background-color: pink;
+            font-size: 16px;
+            background-color: #ffb6c1;
             border: none;
             color: white;
-            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #toggleTheme:hover {
+            background-color: #ff69b4;
+        }
+
+        .theme-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .theme-button {
+            flex: 1;
+            padding: 10px;
+            margin: 2px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .theme-button.selected {
+            background-color: #cccccc;
+            color: #ffffff;
+            cursor: default;
+        }
+
+        .theme-button:disabled {
+            opacity: 0.6;
+            cursor: default;
         }
     </style>
 </head>
 
 <body>
-    <h1>Theme Kawaii</h1>
-    <button id="toggleTheme">Activer le theme</button>
+    <button id="toggleTheme">Activer le Thème</button>
+    <div class="theme-buttons" id="themeButtons">
+        <button class="theme-button" id="kawaiiTheme">Kawaii</button>
+        <button class="theme-button" id="sunsetTheme">Sunset</button>
+        <button class="theme-button" id="darkTheme">Dark</button>
+    </div>
 
     <script src="popup.js"></script>
 </body>
+
 
 </html>

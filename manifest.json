@@ -1,19 +1,33 @@
 {
   "manifest_version": 3,
-  "name": "Kawaii-Mod",
+  "name": "Kawaii Theme",
   "version": "1.0",
-  "description": "Une extension Chrome simple pour changer de theme, crée dans le cadre d'un exercice d'apprentisage de javascript.",
+  "description": "Extension avec plusieurs thèmes",
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "Kirby_29.png",
-      "48": "Kirby_29.png",
-      "128": "Kirby_29.png"
+      "16": "images/3068d4c3a69001bcd969f2fb11dada15.png",
+      "32": "images/3068d4c3a69001bcd969f2fb11dada15.png",
+      "48": "images/3068d4c3a69001bcd969f2fb11dada15.png",
+      "128": "images/3068d4c3a69001bcd969f2fb11dada15.png"
     }
   },
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
-  "host_permissions": ["<all_urls>"]
+  "web_accessible_resources": [
+    {
+      "resources": ["kawaii.css", "sunset.css", "dark.css", "images/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "run_at": "document_start"
+    }
+  ]
 }
