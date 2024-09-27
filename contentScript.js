@@ -16,41 +16,37 @@ initializeTheme();
 
 function injectCSS(themeName) {
   chrome.runtime.sendMessage({ action: "injectCSS", themeName: themeName });
-  if (themeName === "kawaii") {
-    if (!document.getElementById("cute-corner-top-left")) {
-      addCornerImages();
-    }
+  if (!document.getElementById(`${themeName}-corner-top-left`)) {
+    addThemeCornerImages(themeName);
   }
 }
 
 function removeCSS(themeName) {
   chrome.runtime.sendMessage({ action: "removeCSS", themeName: themeName });
-  if (themeName === "kawaii") {
-    removeCornerImages();
-  }
+  removeThemeCornerImages(themeName);
 }
 
-function addCornerImages() {
+function addThemeCornerImages(theme) {
   const images = [
     {
-      id: "cute-corner-top-left",
+      id: `${theme}-corner-top-left`,
       position: { top: "10px", left: "10px" },
-      src: chrome.runtime.getURL("images/3068d4c3a69001bcd969f2fb11dada15.png"),
+      src: chrome.runtime.getURL(`images/${theme}1.png`),
     },
     {
-      id: "cute-corner-top-right",
+      id: `${theme}-corner-top-right`,
       position: { top: "10px", right: "10px" },
-      src: chrome.runtime.getURL("images/3f44568c3de5609703acf0549e72f7d6.png"),
+      src: chrome.runtime.getURL(`images/${theme}2.png`),
     },
     {
-      id: "cute-corner-bottom-left",
+      id: `${theme}-corner-bottom-left`,
       position: { bottom: "10px", left: "10px" },
-      src: chrome.runtime.getURL("images/eat-my-cake.png"),
+      src: chrome.runtime.getURL(`images/${theme}3.png`),
     },
     {
-      id: "cute-corner-bottom-right",
+      id: `${theme}-corner-bottom-right`,
       position: { bottom: "10px", right: "10px" },
-      src: chrome.runtime.getURL("images/flying-kirby-custom-cursor.png"),
+      src: chrome.runtime.getURL(`images/${theme}4.png`),
     },
   ];
 
@@ -72,12 +68,12 @@ function addCornerImages() {
   });
 }
 
-function removeCornerImages() {
+function removeThemeCornerImages(theme) {
   const ids = [
-    "cute-corner-top-left",
-    "cute-corner-top-right",
-    "cute-corner-bottom-left",
-    "cute-corner-bottom-right",
+    `${theme}-corner-top-left`,
+    `${theme}-corner-top-right`,
+    `${theme}-corner-bottom-left`,
+    `${theme}-corner-bottom-right`,
   ];
   ids.forEach((id) => {
     const element = document.getElementById(id);
