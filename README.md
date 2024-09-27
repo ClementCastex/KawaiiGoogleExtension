@@ -1,7 +1,7 @@
 
 
 
-![Google Chrome Icon](https://img.icons8.com/?size=100&id=ejub91zEY6Sl&format=png&color=000000) # Google Extension - Changement de thème
+# Google Extension - Changement de thème ![Google Chrome Icon](https://img.icons8.com/?size=100&id=ejub91zEY6Sl&format=png&color=000000)
 
 ## Thèmes
 Une extension google qui donne le choix entre 3 thèmes d'affichage :
