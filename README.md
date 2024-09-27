@@ -1,7 +1,7 @@
-![Google Chrome Icon](https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png)
 
 
-# Google Extension - Changement de thème
+
+# Google Extension - Changement de thème ![Google Chrome Icon](https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png)
 
 ## Thèmes
 Une extension google qui donne le choix entre 3 thèmes d'affichage :
