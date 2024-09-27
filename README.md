@@ -19,10 +19,13 @@ Une extension google qui donne le choix entre 3 thèmes d'affichage :
    git clone https://github.com/ClementCastex/KawaiiGoogleExtension.git
 
 2. Ouvrez Google Chrome et accédez à chrome://extensions/.
+![Capture d'écran 2024-09-27 103014](https://github.com/user-attachments/assets/1a6c3374-a9db-4c86-bbc2-2ae0628297ac)
 
 3. Activez le mode développeur dans le coin supérieur droit.
+![Capture d'écran 2024-09-27 103313](https://github.com/user-attachments/assets/ab2be705-8620-496b-8649-dd5704c38ce4)
 
 4. Cliquez sur "Charger l'extension non empaquetée" et sélectionnez le dossier de votre extension.
+![Capture d'écran 2024-09-27 103740](https://github.com/user-attachments/assets/6af79ef3-3bad-4fb6-a844-6fbae82d8bbb)
 
 ## Utilisation
 - Cliquez sur le bouton d'action de l'extension dans la barre d'outils pour ouvrir le tableau de sélection.
